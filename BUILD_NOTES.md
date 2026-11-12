@@ -78,7 +78,14 @@ Voice + soft pad chords (Am–F–C–G, one per ~12.5 s, sine-stack + sub root,
 
 ## Eevee validation
 
-- Local Eevee test: attempted on this VM (no GPU; EGL falls back to software). [STATUS — see final report / Colab test-frames cell.]
+- Local Eevee test: **done, passed** — 2 frames rendered on this VM's CPU
+  fallback (EGL_BAD_MATCH, llvmpipe; ~130–140 s/frame, so only 2 frames were
+  attempted): `out/stills/eevee_test/f0575_eevee.png` (S06 passengers render
+  perfectly in Eevee — upright, flat 2D, faces visible, red cap, no black
+  shells) and `out/stills/eevee_test/f0130_eevee.png` (S02 map — the black
+  band is GONE, top of frame is light blue backdrop as predicted; network,
+  trains, and stations all read). Both highest-risk Eevee unknowns are
+  resolved locally.
 - The Colab notebook's mandatory test-frames cell (one frame per shot) is the authoritative Eevee check: 2D characters upright/flat/facing, no black/missing objects, gauge needles/clock hands visible, red alert flashing, sparks, bubbles, crack glow, S02 band light blue (not black).
 
 ## Known limits
